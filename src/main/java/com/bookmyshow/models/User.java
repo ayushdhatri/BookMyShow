@@ -10,12 +10,13 @@ import java.util.List;
 @Entity
 @Getter
 @Setter
-public class Movie extends BaseModel {
+public class User extends BaseModel {
     private String name;
 
-    private String poster;
+    private String email;
 
-    @OneToMany(mappedBy = "movie")
-    private List<Show> shows;
+    @OneToMany(mappedBy = "user")
+    private List<Ticket> ticket;
+
 
 }
