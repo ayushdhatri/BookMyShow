@@ -1,6 +1,8 @@
 package com.bookmyshow.models;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.ManyToOne;
 import lombok.Getter;
 import lombok.Setter;
@@ -20,6 +22,7 @@ public class Ticket extends BaseModel{
     @ManyToOne
     private ShowSeat showSeat;
 
+    @Enumerated(EnumType.ORDINAL)
     private TicketStatus status;
 
 }
