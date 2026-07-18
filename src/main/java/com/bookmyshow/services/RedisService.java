@@ -14,7 +14,7 @@ public class RedisService implements CacheService{
     }
 
     @Override
-    public void save(String key, Object value) {
+    public void set(String key, Object value) {
         stringRedisTemplate.opsForValue().set(key, value.toString());
     }
 
@@ -27,4 +27,12 @@ public class RedisService implements CacheService{
     public void delete(String key) {
         stringRedisTemplate.delete(key);
         }
+
+    @Override
+    public void getAllKeysAndValues() {
+        stringRedisTemplate.keys("*").forEach(key -> {
+            System.out.println("Key " + key + " value: " + stringRedisTemplate.opsForValue().get(key));
+        });
+
+    }
 }

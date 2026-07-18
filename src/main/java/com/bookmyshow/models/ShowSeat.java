@@ -19,5 +19,4 @@ public class ShowSeat extends BaseModel{
 
     private ShowSeatStatus showSeatStatus;
 
-
 }
