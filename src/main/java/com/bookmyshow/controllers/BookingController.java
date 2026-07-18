@@ -10,12 +10,15 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RequiredArgsConstructor
 @RestController
-@RequestMapping("/api/v1/blookings")
+@RequestMapping("/api/v1/bookings")
 public class BookingController {
     private final BookingService bookingService;
 
     @PostMapping
     public boolean blockSeats(@RequestBody BlockSeatsRequestDto blockSeatsRequestDto){
+        System.out.println("show id is: " + blockSeatsRequestDto.getShowId());
+        System.out.println("List of seat ids : " + blockSeatsRequestDto.getSeatIds());
+        System.out.println("User id is : " + blockSeatsRequestDto.getUserId());
         return bookingService.blockSeats(blockSeatsRequestDto.getShowId(), blockSeatsRequestDto.getSeatIds(), blockSeatsRequestDto.getUserId());
     }
 

@@ -10,6 +10,8 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.Optional;
 
+import static org.hibernate.internal.util.collections.ArrayHelper.forEach;
+
 @Service
 @RequiredArgsConstructor
 public class RedisBookingService implements BookingService{
@@ -22,9 +24,12 @@ public class RedisBookingService implements BookingService{
         cacheService.getAllKeysAndValues();
         // 1. We will first of all check if the seats are available or not
         // 1.a Check if the seats are not booked already
+        seatIds.forEach(System.out::println);
         List<ShowSeat> showSeats = showSeatRepository.findAllByShowIdAndSeatIdIn(showId, seatIds);
+        System.out.println("size of showSeats is " + showSeats.size());
         for(ShowSeat seat : showSeats){
-            if(seat.getShowSeatStatus() == ShowSeatStatus.BOOKED){
+            System.out.println("Seat with Id " + seat.getId() + " with its status as " + seat.getShowSeatStatus());
+            if(seat.getShowSeatStatus().equals(ShowSeatStatus.BOOKED)){
                 return false;
             }
         }

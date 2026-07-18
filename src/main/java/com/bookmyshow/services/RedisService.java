@@ -31,7 +31,9 @@ public class RedisService implements CacheService{
     @Override
     public void getAllKeysAndValues() {
         stringRedisTemplate.keys("*").forEach(key -> {
-            System.out.println("Key " + key + " value: " + stringRedisTemplate.opsForValue().get(key));
+            System.out.println();
+            System.out.print("Key " + key + " value: ");
+            System.out.println(stringRedisTemplate.opsForValue().get(key));
         });
 
     }
