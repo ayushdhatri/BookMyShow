@@ -6,6 +6,10 @@ import jakarta.persistence.OneToMany;
 import lombok.Getter;
 import lombok.Setter;
 
+
+import java.util.List;
+import java.util.Optional;
+
 @Entity
 @Getter
 @Setter
@@ -18,5 +22,13 @@ public class ShowSeat extends BaseModel{
     private Seat seat;
 
     private ShowSeatStatus showSeatStatus;
+
+    @ManyToOne
+    private Ticket ticket;
+
+
+
+
+
 
 }

@@ -1,15 +1,16 @@
 package com.bookmyshow.models;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.EnumType;
-import jakarta.persistence.Enumerated;
-import jakarta.persistence.ManyToOne;
-import lombok.Getter;
-import lombok.Setter;
+import jakarta.persistence.*;
+import lombok.*;
+
+import java.util.List;
 
 @Entity
 @Getter
 @Setter
+@Builder
+@RequiredArgsConstructor
+@AllArgsConstructor
 public class Ticket extends BaseModel{
     private int amount;
 
@@ -19,8 +20,8 @@ public class Ticket extends BaseModel{
     @ManyToOne
     private Show show;
 
-    @ManyToOne
-    private ShowSeat showSeat;
+    @OneToMany
+    private List<ShowSeat> showSeat;
 
     @Enumerated(EnumType.ORDINAL)
     private TicketStatus status;
