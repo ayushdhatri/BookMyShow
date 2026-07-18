@@ -18,4 +18,5 @@ public class BookingController {
     public boolean blockSeats(@RequestBody BlockSeatsRequestDto blockSeatsRequestDto){
         return bookingService.blockSeats(blockSeatsRequestDto.getShowId(), blockSeatsRequestDto.getSeatIds(), blockSeatsRequestDto.getUserId());
     }
+
 }

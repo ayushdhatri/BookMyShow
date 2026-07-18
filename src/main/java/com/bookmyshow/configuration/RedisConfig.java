@@ -18,15 +18,17 @@ public class RedisConfig {
         jedisConnectionFactory.setHostName("localhost");
         jedisConnectionFactory.setPort(6379);
         return jedisConnectionFactory;
+
+
     }
 
-    @Bean
-    public RedisTemplate<String,String> redisTemplate(){
-        RedisTemplate<String, String> redisTemplate = new RedisTemplate<>();
-        redisTemplate.setConnectionFactory(redisConnectionFactory());
-        redisTemplate.setKeySerializer(new StringRedisSerializer());
-        return redisTemplate;
-    }
+//    @Bean
+//    public RedisTemplate<String,String> redisTemplate(){
+//        RedisTemplate<String, String> redisTemplate = new RedisTemplate<>();
+//        redisTemplate.setConnectionFactory(redisConnectionFactory());
+//        redisTemplate.setKeySerializer(new StringRedisSerializer());
+//        return redisTemplate;
+//    }
 
     @Bean
     public StringRedisTemplate stringRedisTemplate() {

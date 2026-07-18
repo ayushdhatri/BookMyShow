@@ -31,9 +31,9 @@ dependencies {
     testCompileOnly 'org.projectlombok:lombok'
     testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
     testAnnotationProcessor 'org.projectlombok:lombok'
-    implementation 'redis.clients:jedis:5.1.2'
+    implementation 'redis.clients:jedis'
     // Source: https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-data-redis
-    implementation 'org.springframework.boot:spring-boot-starter-data-redis:3.4.11'
+    implementation 'org.springframework.boot:spring-boot-starter-data-redis'
 
 }
 
